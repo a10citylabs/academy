@@ -20,7 +20,7 @@ export default defineConfig({
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/a10city' },
         { icon: 'x.com', label: 'X/Twitter', href: 'https://twitter.com/a10city' },
-        { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/in/a10city' },
+        { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/company/a10city' },
       ],
       customCss: [
         '@fontsource/space-grotesk/400.css',
