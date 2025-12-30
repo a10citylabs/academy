@@ -32,7 +32,7 @@ Start the development server:
 npm run dev
 ```
 
-## 📄 License
+## License
 
 This work is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
@@ -40,7 +40,7 @@ This work is licensed under the [Creative Commons Attribution-NonCommercial-Shar
 
 See the [LICENSE](LICENSE) file for details.
 
-## 📬 Contact
+## Socials and Contact Details
 
 - Website: [a10city.com](https://a10city.com)
 - Email: [info@a10city.com](mailto:info@a10city.com)
