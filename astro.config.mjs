@@ -18,7 +18,7 @@ export default defineConfig({
         replacesTitle: true,
       },
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/a10city' },
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/a10citylabs' },
         { icon: 'x.com', label: 'X/Twitter', href: 'https://twitter.com/a10city' },
         { icon: 'linkedin', label: 'LinkedIn', href: 'https://linkedin.com/company/a10city' },
       ],
