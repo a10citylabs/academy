@@ -2,6 +2,12 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
+  // GitHub Pages configuration
+  // Update these for your deployment:
+  // - For https://<username>.github.io/<repo>/ use both site and base
+  // - For custom domain, set site only and remove base
+  site: 'https://a10city.github.io',
+  base: '/academy/',
   integrations: [
     starlight({
       title: 'A10city Academy',
