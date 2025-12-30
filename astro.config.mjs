@@ -17,6 +17,7 @@ export default defineConfig({
         dark: './src/assets/logo-dark.svg',
         replacesTitle: true,
       },
+      favicon: '/favicon.ico',
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/a10citylabs' },
         { icon: 'x.com', label: 'X/Twitter', href: 'https://twitter.com/a10city' },
