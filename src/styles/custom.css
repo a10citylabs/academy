@@ -1,0 +1,709 @@
+/* ============================================
+   A10city Academy - Starlight Custom Theme
+   WCAG 2.1 AA/AAA Compliant
+   ============================================ */
+
+/* ============================================
+   CSS Custom Properties - Dark Theme
+   ============================================ */
+:root {
+  /* A10city Brand Colors */
+  --a10-navy-deep: #0d2137;
+  --a10-navy-dark: #132d4a;
+  --a10-navy-medium: #1a3a5c;
+  --a10-lime-primary: #a4e439;
+  --a10-lime-light: #c4f06a;
+  --a10-lime-dark: #8bc62e;
+  
+  /* Typography */
+  --sl-font: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+  --__sl-heading-font: 'Space Grotesk', var(--sl-font);
+  
+  /* Spacing */
+  --sl-content-width: 50rem;
+  --sl-content-pad-x: 1.5rem;
+  
+  /* Focus styles for accessibility */
+  --sl-focus-ring: 0 0 0 3px var(--a10-lime-primary);
+}
+
+/* ============================================
+   Dark Theme (Default)
+   ============================================ */
+:root,
+[data-theme='dark'] {
+  /* Starlight color overrides */
+  --sl-color-bg: var(--a10-navy-deep);
+  --sl-color-bg-nav: rgba(13, 33, 55, 0.95);
+  --sl-color-bg-sidebar: var(--a10-navy-dark);
+  --sl-color-bg-inline-code: rgba(164, 228, 57, 0.1);
+  
+  --sl-color-text: #e2e8f0;
+  --sl-color-text-accent: var(--a10-lime-primary);
+  
+  --sl-color-hairline: rgba(164, 228, 57, 0.15);
+  --sl-color-hairline-light: rgba(164, 228, 57, 0.08);
+  --sl-color-hairline-shade: rgba(0, 0, 0, 0.3);
+  
+  --sl-color-accent: var(--a10-lime-primary);
+  --sl-color-accent-low: rgba(164, 228, 57, 0.15);
+  --sl-color-accent-high: var(--a10-lime-light);
+  
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #e2e8f0;
+  --sl-color-gray-2: #cbd5e1;
+  --sl-color-gray-3: #94a3b8;
+  --sl-color-gray-4: #64748b;
+  --sl-color-gray-5: #475569;
+  --sl-color-gray-6: #334155;
+  --sl-color-black: #0d2137;
+  
+  /* Links - WCAG compliant contrast */
+  --sl-color-text-link: var(--a10-lime-primary);
+  
+  /* Headings */
+  --sl-color-heading: #ffffff;
+  
+  /* Badges */
+  --sl-color-bg-badge: rgba(164, 228, 57, 0.12);
+  
+  /* Code blocks */
+  --sl-color-code-bg: var(--a10-navy-dark);
+}
+
+/* ============================================
+   Light Theme
+   WCAG AA compliant - minimum 4.5:1 contrast for text
+   ============================================ */
+[data-theme='light'] {
+  --sl-color-bg: #f8fafc;
+  --sl-color-bg-nav: rgba(248, 250, 252, 0.95);
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-inline-code: rgba(13, 33, 55, 0.08);
+  
+  /* Text colors with WCAG AA compliance */
+  --sl-color-text: #1e293b;
+  --sl-color-text-accent: #0d5c1d; /* Darker green for contrast on light bg - 7:1 ratio */
+  
+  --sl-color-hairline: rgba(13, 33, 55, 0.15);
+  --sl-color-hairline-light: rgba(13, 33, 55, 0.08);
+  --sl-color-hairline-shade: rgba(13, 33, 55, 0.1);
+  
+  /* Accent colors - adjusted for light theme contrast */
+  --sl-color-accent: #0d5c1d; /* Dark green - 7:1 contrast on white */
+  --sl-color-accent-low: rgba(13, 92, 29, 0.1);
+  --sl-color-accent-high: #064e14;
+  
+  --sl-color-white: #0d2137;
+  --sl-color-gray-1: #1e293b;
+  --sl-color-gray-2: #334155;
+  --sl-color-gray-3: #475569;
+  --sl-color-gray-4: #64748b;
+  --sl-color-gray-5: #94a3b8;
+  --sl-color-gray-6: #cbd5e1;
+  --sl-color-black: #ffffff;
+  
+  /* Links - dark green for contrast */
+  --sl-color-text-link: #0d5c1d;
+  
+  /* Headings */
+  --sl-color-heading: var(--a10-navy-deep);
+  
+  /* Badges */
+  --sl-color-bg-badge: rgba(13, 92, 29, 0.1);
+  
+  /* Code blocks */
+  --sl-color-code-bg: #f1f5f9;
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================
+   Focus Styles - Accessibility
+   ============================================ */
+:focus {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Skip Link - Accessibility
+   ============================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sl-color-accent);
+  color: var(--sl-color-bg);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0 0 10px 10px;
+  z-index: 10000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--__sl-heading-font);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   Navigation
+   ============================================ */
+.site-title {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+}
+
+starlight-menu-button {
+  --sl-color-accent: var(--a10-lime-primary);
+}
+
+/* ============================================
+   Sidebar
+   ============================================ */
+nav.sidebar {
+  border-right: 1px solid var(--sl-color-hairline);
+}
+
+.sidebar-content a {
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-content a:hover {
+  background: var(--sl-color-accent-low);
+}
+
+.sidebar-content a[aria-current="page"] {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-accent);
+  font-weight: 600;
+}
+
+/* ============================================
+   Content Styles
+   ============================================ */
+.sl-markdown-content {
+  line-height: 1.75;
+}
+
+.sl-markdown-content a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-accent-high);
+}
+
+/* ============================================
+   Cards & Callouts
+   ============================================ */
+.sl-markdown-content .card {
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.sl-markdown-content .card:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Starlight Aside/Callout enhancements */
+.starlight-aside {
+  border-radius: 12px;
+  border-left-width: 4px;
+}
+
+/* ============================================
+   Course Components
+   ============================================ */
+
+/* Video Container */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 2rem 0;
+  background: var(--sl-color-gray-6);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+/* Video placeholder for accessibility */
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--a10-navy-dark), var(--a10-navy-medium));
+  border-radius: 12px;
+  color: var(--sl-color-text);
+}
+
+[data-theme='light'] .video-placeholder {
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+}
+
+.video-placeholder svg {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  color: var(--sl-color-accent);
+}
+
+.video-placeholder span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Quiz Component */
+.quiz-container {
+  background: var(--sl-color-bg-sidebar);
+  border: 2px solid var(--sl-color-hairline);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--sl-color-hairline);
+}
+
+.quiz-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--sl-color-accent-low);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sl-color-accent);
+}
+
+.quiz-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--sl-color-heading);
+}
+
+.quiz-question {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sl-color-heading);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--sl-color-bg);
+  border: 2px solid var(--sl-color-hairline);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.quiz-option:hover {
+  border-color: var(--sl-color-accent);
+  background: var(--sl-color-accent-low);
+}
+
+.quiz-option:focus-within {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+
+.quiz-option input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--sl-color-accent);
+  cursor: pointer;
+}
+
+.quiz-option label {
+  cursor: pointer;
+  flex: 1;
+}
+
+.quiz-option.correct {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+.quiz-option.incorrect {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.quiz-feedback {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 500;
+  display: none;
+}
+
+.quiz-feedback.show {
+  display: block;
+}
+
+.quiz-feedback.correct {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+[data-theme='light'] .quiz-feedback.correct {
+  color: #15803d;
+}
+
+.quiz-feedback.incorrect {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[data-theme='light'] .quiz-feedback.incorrect {
+  color: #dc2626;
+}
+
+.quiz-submit {
+  margin-top: 1.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--sl-color-accent);
+  color: var(--a10-navy-deep);
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme='light'] .quiz-submit {
+  color: #ffffff;
+}
+
+.quiz-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(164, 228, 57, 0.3);
+}
+
+[data-theme='light'] .quiz-submit:hover {
+  box-shadow: 0 4px 12px rgba(13, 92, 29, 0.3);
+}
+
+.quiz-submit:focus {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   Learning Objectives
+   ============================================ */
+.learning-objectives {
+  background: var(--sl-color-accent-low);
+  border: 1px solid var(--sl-color-accent);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+.learning-objectives h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem 0;
+  color: var(--sl-color-accent);
+  font-size: 1.1rem;
+}
+
+.learning-objectives ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.learning-objectives li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.learning-objectives li::marker {
+  color: var(--sl-color-accent);
+}
+
+/* ============================================
+   Course Progress
+   ============================================ */
+.course-progress {
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.progress-header span {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: var(--sl-color-hairline);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--sl-color-accent), var(--a10-lime-light));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+[data-theme='light'] .progress-fill {
+  background: linear-gradient(90deg, var(--sl-color-accent), #16a34a);
+}
+
+/* ============================================
+   Key Concepts
+   ============================================ */
+.key-concept {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--sl-color-bg-sidebar);
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 12px;
+  margin: 1rem 0;
+}
+
+.key-concept-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--sl-color-accent-low);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--sl-color-accent);
+}
+
+.key-concept-content h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--sl-color-heading);
+}
+
+.key-concept-content p {
+  margin: 0;
+  color: var(--sl-color-text);
+  line-height: 1.6;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 1.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--sl-color-accent);
+  color: var(--a10-navy-deep);
+}
+
+[data-theme='light'] .btn-primary {
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(164, 228, 57, 0.3);
+}
+
+[data-theme='light'] .btn-primary:hover {
+  box-shadow: 0 4px 12px rgba(13, 92, 29, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--sl-color-accent);
+  border: 2px solid var(--sl-color-accent);
+}
+
+.btn-secondary:hover {
+  background: var(--sl-color-accent-low);
+}
+
+/* ============================================
+   Footer Enhancement
+   ============================================ */
+.sl-footer {
+  border-top: 1px solid var(--sl-color-hairline);
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 1.5rem;
+  }
+  
+  .quiz-option {
+    padding: 0.875rem 1rem;
+  }
+  
+  .video-container {
+    margin: 1.5rem -1rem;
+    border-radius: 0;
+  }
+  
+  .video-container iframe {
+    border-radius: 0;
+  }
+}
+
+/* ============================================
+   High Contrast Mode
+   ============================================ */
+@media (prefers-contrast: high) {
+  :root,
+  [data-theme='dark'] {
+    --sl-color-hairline: rgba(255, 255, 255, 0.4);
+  }
+  
+  [data-theme='light'] {
+    --sl-color-hairline: rgba(0, 0, 0, 0.4);
+  }
+  
+  .quiz-option,
+  .key-concept,
+  .course-progress,
+  .quiz-container {
+    border-width: 2px;
+  }
+  
+  a {
+    text-decoration: underline !important;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  .video-container,
+  .quiz-submit,
+  nav.sidebar,
+  starlight-menu-button {
+    display: none !important;
+  }
+  
+  .sl-markdown-content {
+    max-width: 100%;
+  }
+  
+  .quiz-container {
+    border: 1px solid #ccc;
+  }
+}
