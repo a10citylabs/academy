@@ -37,11 +37,11 @@ Interested in contributing to A10city Academy? We welcome:
 - **Translations** — Help make our content accessible to more people
 - **Feedback** — Tell us how we can improve our courses
 
-Contact us at [academy@a10city.com](mailto:academy@a10city.com) to learn more.
+Contact us at [info@a10city.com](mailto:info@a10city.com) to learn more.
 
 ## Connect With Us
 
 - [Website](https://a10city.com)
 - [Twitter/X](https://twitter.com/DrW3RK)
 - [LinkedIn](https://linkedin.com/company/a10city)
-- [GitHub](https://github.com/a10city)
+- [GitHub](https://github.com/a10citylabs)
