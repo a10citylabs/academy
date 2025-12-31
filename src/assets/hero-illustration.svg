@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="520" height="390" fill="none">
   <style>
     /* Dark mode (default) */
     .bg-circle { fill: #1a3a5c; opacity: 0.5; }
     .accent-stroke { stroke: #a4e439; }
     .shield-fill { fill: #a4e439; opacity: 0.15; }
-    .media-stroke { stroke: #94a3b8; }
-    .media-fill { fill: #94a3b8; }
+    .media-stroke { stroke: #a4e439; }
+    .media-fill { fill: #a4e439; }
     .media-bg { fill: #1a3a5c; opacity: 0.8; }
     
     /* Light mode */
